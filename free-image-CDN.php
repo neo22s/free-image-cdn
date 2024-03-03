@@ -31,16 +31,14 @@ class freeImageCDN {
         add_filter('plugin_row_meta', [$this, 'addPluginRowMeta'], 10, 2);
 
         if (!$this->is_local_site()) { //change this to FALSE since we are developing
-            add_action( 'wp_head', array( $this, 'dns_prefetch' ) );
+            add_action( 'wp_enqueue_scripts', array( $this, 'dns_prefetch' ) );
             add_action( 'template_redirect', array( $this, 'start_buffering' ) );
         }
     }
 
     // Adds the DNS prefetch meta fields for the wsrv.nl server
     public function dns_prefetch() {
-        ?>
-        <link rel='dns-prefetch' href='//<?php echo esc_attr( "wsrv.nl" ) ?>' />
-        <?php
+        wp_enqueue_script( 'dns-prefetch-wsrv', '//wsrv.nl', array(), false, true );
     }
 
      // Start the output buffering
@@ -122,7 +120,7 @@ class freeImageCDN {
         $plugin_meta[] = sprintf(
             '<a href="%1$s"><span class="dashicons dashicons-star-filled" aria-hidden="true" style="font-size:14px;line-height:1.3"></span>%2$s</a>',
             'https://paypal.me/chema/10EUR',
-            esc_html_x('Sponsor', 'verb', 'better-quick-login')
+            esc_html_x('Sponsor', 'verb', 'free-image-cdn')
         );
 
         return $plugin_meta;
