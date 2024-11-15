@@ -1,13 +1,15 @@
 === Free Image CDN ===
 Contributors: deambulando
 Donate link: https://paypal.me/chema/10EUR
-Tags: cdn, images, performance, speed, optimization, weserv, free
+Tags: cdn, images, performance, speed, weserv
 Requires at least: 6.0
-Tested up to: 6.4
-Stable tag: 1.0
-Requires PHP: 8
+Tested up to: 6.7
+Stable tag: 1.1
+Requires PHP: 8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Free Image CDN using wsrv.nl - Improves the speed of your site.
 
 ### Description
 
@@ -43,6 +45,10 @@ Using a CDN for images offers several advantages, including faster loading times
 [wsrv.nl](https://wsrv.nl/) is a free and reliable image CDN service that provides a simple way to speed up image loading on your website. It supports a wide range of image formats and can be used to deliver images from a CDN without any additional cost.
 
 == Changelog ==
+
+= 1.1 =
+* Fixed issue with static variable.
+* Updated WP version
 
 = 1.0 =
 * Initial release.

@@ -3,8 +3,8 @@
     * Plugin Name: Free Image CDN
     * Plugin URI: https://garridodiaz.com/free-image-cdn-for-wordpress/
     * Description: Speed your loading site and images using a Free Image CDN powered by wsrv.nl service
-    * Version: 1.0
-    * Author: Chema 
+    * Version: 1.1
+    * Author: Chema
     * Author URI: https://garridodiaz.com
     * License: GPL2
 */
@@ -27,7 +27,7 @@ class freeImageCDN {
     public function __construct() {
 
         // Get the content directory URL minus the http://
-        $this->content_url = str_replace( ['http://','https://'], '', content_url() );
+        self::$content_url = str_replace( ['http://','https://'], '', content_url() );
         add_filter('plugin_row_meta', [$this, 'addPluginRowMeta'], 10, 2);
 
         if (!$this->is_local_site()) { //change this to FALSE since we are developing
